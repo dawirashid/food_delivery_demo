@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_demo/home/food_page_body.dart';
 import 'package:food_delivery_demo/utilis/colors.dart';
+import 'package:food_delivery_demo/utilis/dimensions.dart';
 import 'package:food_delivery_demo/widgets/big_text.dart';
 import 'package:food_delivery_demo/widgets/small_text.dart';
 
@@ -11,22 +12,19 @@ class MainFoodPage extends StatefulWidget {
   State<MainFoodPage> createState() => _MainFoodPageState();
 }
 
-
-
-
 class _MainFoodPageState extends State<MainFoodPage> {
-
   @override
   Widget build(BuildContext context) {
+    // print('current height is ' +MediaQuery.of(context).size.height.toString());
     return Scaffold(
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(
-              top: 45,
-              bottom: 15,
-              left: 20,
-              right: 20,
+            padding:  EdgeInsets.only(
+              top: Dimensions.height45,
+              bottom: Dimensions.height15,
+              left: Dimensions.width20,
+              right: Dimensions.width20,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -52,14 +50,15 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ),
                 Center(
                   child: Container(
-                    child: const Icon(
+                    child:  Icon(
                       Icons.search,
                       color: Colors.white,
+                      size: Dimensions.iconSize24,
                     ),
-                    width: 45,
-                    height: 45,
+                    width: Dimensions.height45,
+                    height: Dimensions.height45,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(Dimensions.radius15),
                       color: AppColors.mainColor,
                     ),
                   ),
