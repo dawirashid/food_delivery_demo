@@ -21,7 +21,6 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   final double _scaleFactor = 0.8;
   final double _height = Dimensions.pageViewContainer;
 
-
   @override
   void initState() {
     super.initState();
@@ -101,7 +100,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         children: [
           Container(
             height: Dimensions.pageViewContainer,
-            margin: EdgeInsets.only(left:Dimensions.width10, right: Dimensions.width10),
+            margin: EdgeInsets.only(
+                left: Dimensions.width10, right: Dimensions.width10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(Dimensions.radius20),
               color: index.isEven ? Colors.amber : Colors.blue,
@@ -117,7 +117,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: Dimensions.pageViewTextContainer,
-              margin:  EdgeInsets.only(left: Dimensions.width30, right: Dimensions.width30, bottom: 10),
+              margin: EdgeInsets.only(
+                  left: Dimensions.width30,
+                  right: Dimensions.width30,
+                  bottom: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
                 color: Colors.white,
@@ -138,12 +141,15 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 ],
               ),
               child: Container(
-                padding:   EdgeInsets.only(top: Dimensions.height10, left: Dimensions.width20, right: Dimensions.width20),
+                padding: EdgeInsets.only(
+                    top: Dimensions.height10,
+                    left: Dimensions.width20,
+                    right: Dimensions.width20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     BigText(text: 'Chinese Side'),
-                     SizedBox(height: Dimensions.height10),
+                    SizedBox(height: Dimensions.height10),
                     Row(
                       children: [
                         Wrap(
@@ -191,7 +197,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                             text: '32min',
                             iconColor: AppColors.iconColor2),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),
