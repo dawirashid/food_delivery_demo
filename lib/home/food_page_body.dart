@@ -40,7 +40,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     // ignore: sized_box_for_whitespace
     return Column(
-      children: [
+      children: [ // slide section
         Container(
           // color: Colors.blue,
           height: Dimensions.pageView,
@@ -52,6 +52,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             },
           ),
         ),
+        // dots
         DotsIndicator(
           dotsCount: 5,
           position: _currentPageValue,
@@ -64,6 +65,27 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             ),
           ),
         ),
+        //Popular text
+        SizedBox(height: Dimensions.height20,),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: 'Popular'),
+              SizedBox(width: Dimensions.width10,),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(text: '.', color : Colors.black26),
+              ),
+              SizedBox(width: Dimensions.width10,),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: 'Food pairing',),
+              ),
+            ],
+          ),
+        )
       ],
     );
   }
