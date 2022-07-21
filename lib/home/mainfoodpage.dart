@@ -20,7 +20,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [
           Padding(
-            padding:  EdgeInsets.only(
+            padding: EdgeInsets.only(
               top: Dimensions.height45,
               bottom: Dimensions.height15,
               left: Dimensions.width20,
@@ -50,7 +50,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
                 ),
                 Center(
                   child: Container(
-                    child:  Icon(
+                    child: Icon(
                       Icons.search,
                       color: Colors.white,
                       size: Dimensions.iconSize24,
@@ -66,7 +66,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
               ],
             ),
           ),
-          const FoodPageBody(),
+          const Expanded(
+            child: SingleChildScrollView(
+              child: FoodPageBody(),
+            ),
+          ),
         ],
       ),
     );
