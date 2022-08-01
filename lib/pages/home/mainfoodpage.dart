@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_demo/pages/home/food_page_body.dart';
-
 import 'package:food_delivery_demo/utilis/colors.dart';
 import 'package:food_delivery_demo/utilis/dimensions.dart';
 import 'package:food_delivery_demo/widgets/big_text.dart';
