@@ -49,7 +49,8 @@ class _ExpandableTextWidgetState extends State<ExpandableTextWidget> {
                       ? (firstHalf + '...')
                       : (firstHalf + secondHalf),
                   color: AppColors.paraColor,
-                  height: 1.8, // text spacing
+                  height: 1.8,
+                  size: 20,// text spacing
                 ),
                 InkWell(
                   onTap: () {

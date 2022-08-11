@@ -75,9 +75,10 @@ class PopularFoodDetail extends StatelessWidget {
                   BigText(text: 'Introduce'),
                   Expanded(
                     child: SingleChildScrollView(
-                        child: ExpandableTextWidget(
-                            text:
-                                'The Delhi version of biryani developed a unique local flavor as the Mughal kings shifted their political capital to the North Indian city of Delhi. Until the 1950s, most people cooked biryani in their home and rarely ate at eateries outside of their homes. Hence, restaurants primarily catered to travelers and merchants. Any region that saw more of these two classes of people nurtured more restaurants, and thus their own versions of biryani. This is the reason why most shops that sold biryani in Delhi, tended to be near mosques such as Jama Masjid (for travellers) or traditional shopping districts (such as Chandni Chowk)Each part of Delhi has its own style of biryani, often based on its original purpose, thus giving rise to Nizamuddin biryani, Shahjahanabad biryani, etc. Nizamuddin biryani usually had little expensive meat and spices as it was primarily meant to be made in bulk for offering at the Nizamuddin Dargah shrine and thereafter to be distributed to devotees.[21] A non-dum biryani, using many green chillies, popularized by the Babu Shahi Bawarchi shops located outside the National Sports Club in Delhi is informally called Babu Shahi biryani. Another version of Delhi biryani uses achaar (pickles) and is called achaari biryani'),),
+                      child: ExpandableTextWidget(
+                          text:
+                              'The Delhi version of biryani developed a unique local flavor as the Mughal kings shifted their political capital to the North Indian city of Delhi. Until the 1950s, most people cooked biryani in their home and rarely ate at eateries outside of their homes. Hence, restaurants primarily catered to travelers and merchants. Any region that saw more of these two classes of people nurtured more restaurants, and thus their own versions of biryani. This is the reason why most shops that sold biryani in Delhi, tended to be near mosques such as Jama Masjid (for travellers) or traditional shopping districts (such as Chandni Chowk)Each part of Delhi has its own style of biryani, often based on its original purpose, thus giving rise to Nizamuddin biryani, Shahjahanabad biryani, etc. Nizamuddin biryani usually had little expensive meat and spices as it was primarily meant to be made in bulk for offering at the Nizamuddin Dargah shrine and thereafter to be distributed to devotees.[21] A non-dum biryani, using many green chillies, popularized by the Babu Shahi Bawarchi shops located outside the National Sports Club in Delhi is informally called Babu Shahi biryani. Another version of Delhi biryani uses achaar (pickles) and is called achaari biryani'),
+                    ),
                   ),
                 ],
               ),
@@ -133,18 +134,19 @@ class PopularFoodDetail extends StatelessWidget {
               ),
             ),
             Container(
-                padding: EdgeInsets.only(
-                    top: Dimensions.height20,
-                    bottom: Dimensions.height20,
-                    left: Dimensions.width20,
-                    right: Dimensions.width20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius20),
-                  color: AppColors.mainColor,
-                ),
-                child: BigText(
-                  text: '\$10 | Add to cart',
-                )),
+              padding: EdgeInsets.only(
+                  top: Dimensions.height20,
+                  bottom: Dimensions.height20,
+                  left: Dimensions.width20,
+                  right: Dimensions.width20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                color: AppColors.mainColor,
+              ),
+              child: BigText(
+                text: '\$10 | Add to cart',
+              ),
+            ),
           ],
         ),
       ),
