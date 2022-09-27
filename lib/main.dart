@@ -5,6 +5,7 @@ import 'package:food_delivery_demo/pages/food/recommended_food_detail.dart';
 
 import 'package:food_delivery_demo/pages/home/mainfoodpage.dart';
 import 'package:get/get.dart';
+import 'controller/recommended_product_controller.dart';
 import 'helper/dependencies.dart' as dep;
 
 Future<void> main() async {
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
+    Get.find<RecommendedProductController>().getRecommendedProductList();
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: RecomendedFoodDetail(),
+      home: MainFoodPage(),
     );
   }
 }
