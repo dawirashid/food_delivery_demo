@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_demo/controller/recommended_product_controller.dart';
+import 'package:food_delivery_demo/routes/route_helper.dart';
+import 'package:food_delivery_demo/utilis/app_constants.dart';
 import 'package:food_delivery_demo/utilis/dimensions.dart';
 import 'package:food_delivery_demo/widgets/app_icon.dart';
 import 'package:food_delivery_demo/widgets/big_text.dart';
 import 'package:food_delivery_demo/widgets/expandable_text.dart';
+import 'package:get/get.dart';
 
 import '../../utilis/colors.dart';
 
-class RecomendedFoodDetail extends StatelessWidget {
-  const RecomendedFoodDetail({Key? key}) : super(key: key);
+class RecommendedFoodDetail extends StatelessWidget {
+  final int pageId;
+
+
+  const RecommendedFoodDetail({Key? key,required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product = Get.find<RecommendedProductController>().recommendedProductList[pageId];
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: false,
             toolbarHeight: 70,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                AppIcon(icon: Icons.clear),
+                GestureDetector( onTap : (){
+                  Get.toNamed(RouteHelper.getInitial());
+                },
+                    child: AppIcon(icon: Icons.clear)),
                 AppIcon(icon: Icons.shopping_cart_outlined),
               ],
             ),
@@ -29,7 +42,7 @@ class RecomendedFoodDetail extends StatelessWidget {
               child: Container(
                 child: Center(
                   child: BigText(
-                    text: 'Chinese Side',
+                    text: product.name!,
                     size: Dimensions.font26,
                   ),
                 ),
@@ -48,8 +61,8 @@ class RecomendedFoodDetail extends StatelessWidget {
             backgroundColor: AppColors.yellowColor,
             expandedHeight: 300,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/image/food0.png',
+              background: Image.network(
+               AppConstants.BASE_URL+AppConstants.UPLOAD_URL+product.img!,
                 width: double.maxFinite,
                 fit: BoxFit.cover,
               ),
@@ -60,8 +73,7 @@ class RecomendedFoodDetail extends StatelessWidget {
               children: [
                 Container(
                   child: ExpandableTextWidget(
-                      text:
-                          'The Delhi version of biryani developed a unique local flavor as the Mughal kings shifted their political capital to the North Indian city of Delhi. Until the 1950s, most people cooked biryani in their home and rarely ate at eateries outside of their homes. Hence, restaurants primarily catered to travelers and merchants. Any region that saw more of these two classes of people nurtured more restaurants, and thus their own versions of biryani. This is the reason why most shops that sold biryani in Delhi, tended to be near mosques such as Jama Masjid (for travellers) or traditional shopping districts (such as Chandni Chowk)Each part of Delhi has its own style of biryani, often based on its original purpose, thus giving rise to Nizamuddin biryani, Shahjahanabad biryani, etc. Nizamuddin biryani usually had little expensive meat and spices as it was primarily meant to be made in bulk for offering at the Nizamuddin Dargah shrine and thereafter to be distributed to devotees.[21] A non-dum biryani, using many green chillies, popularized by the Babu Shahi Bawarchi shops located outside the National Sports Club in Delhi is informally called Babu Shahi biryani. Another version of Delhi biryani uses achaar (pickles) and is called achaari biryani'),
+                      text: product.description!),
                   margin: EdgeInsets.only(
                       left: Dimensions.width20, right: Dimensions.width20),
                 ),
@@ -89,7 +101,7 @@ class RecomendedFoodDetail extends StatelessWidget {
                   iconSize: Dimensions.iconSize24,
                 ),
                 BigText(
-                  text: '\$12.88 ' + ' X ' + ' 0 ' ,
+                  text: '\$ ${product.price!}  X  0 ' ,
                   color: AppColors.mainBlackColor,
                   size: Dimensions.font26,
                 ),

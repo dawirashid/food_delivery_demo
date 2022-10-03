@@ -4,6 +4,7 @@ import 'package:food_delivery_demo/pages/food/popular_food_details.dart';
 import 'package:food_delivery_demo/pages/food/recommended_food_detail.dart';
 
 import 'package:food_delivery_demo/pages/home/mainfoodpage.dart';
+import 'package:food_delivery_demo/routes/route_helper.dart';
 import 'package:get/get.dart';
 import 'controller/recommended_product_controller.dart';
 import 'helper/dependencies.dart' as dep;
@@ -22,9 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommendedProductList();
-    return const GetMaterialApp(
+    return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainFoodPage(),
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }

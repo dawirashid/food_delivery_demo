@@ -1,17 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery_demo/controller/popular_product_controller.dart';
+import 'package:food_delivery_demo/pages/home/mainfoodpage.dart';
+import 'package:food_delivery_demo/utilis/app_constants.dart';
 import 'package:food_delivery_demo/utilis/colors.dart';
 import 'package:food_delivery_demo/utilis/dimensions.dart';
 import 'package:food_delivery_demo/widgets/app_column.dart';
 import 'package:food_delivery_demo/widgets/app_icon.dart';
 import 'package:food_delivery_demo/widgets/big_text.dart';
-
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../widgets/expandable_text.dart';
 
 class PopularFoodDetail extends StatelessWidget {
-  const PopularFoodDetail({Key? key}) : super(key: key);
+  int pageId;
+
+  PopularFoodDetail({Key? key, required this.pageId}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    var product =
+        Get.find<PopularProductController>().popularProductList[pageId];
+    // print("page is id" +pageId.toString());
+    // print("product name is" +product.name.toString());
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -23,10 +33,12 @@ class PopularFoodDetail extends StatelessWidget {
             child: Container(
               width: double.maxFinite,
               height: Dimensions.popularFoodImageSize,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/image/food0.png'),
+                  image: NetworkImage(AppConstants.BASE_URL +
+                      AppConstants.UPLOAD_URL +
+                      product.img!),
                 ),
               ),
             ),
@@ -38,8 +50,12 @@ class PopularFoodDetail extends StatelessWidget {
             right: Dimensions.width20,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                AppIcon(icon: Icons.arrow_back_ios),
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      Get.to(() => MainFoodPage());
+                    },
+                    child: AppIcon(icon: Icons.arrow_back_ios)),
                 AppIcon(icon: Icons.shopping_cart_outlined),
               ],
             ),
@@ -67,17 +83,16 @@ class PopularFoodDetail extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   AppColumn(
-                    text: 'Chinese Side',
+                    text:product.name!,
                   ),
                   SizedBox(
                     height: Dimensions.height20,
                   ),
                   BigText(text: 'Introduce'),
+                  SizedBox(height:Dimensions.height20 ,),
                   Expanded(
                     child: SingleChildScrollView(
-                      child: ExpandableTextWidget(
-                          text:
-                              'The Delhi version of biryani developed a unique local flavor as the Mughal kings shifted their political capital to the North Indian city of Delhi. Until the 1950s, most people cooked biryani in their home and rarely ate at eateries outside of their homes. Hence, restaurants primarily catered to travelers and merchants. Any region that saw more of these two classes of people nurtured more restaurants, and thus their own versions of biryani. This is the reason why most shops that sold biryani in Delhi, tended to be near mosques such as Jama Masjid (for travellers) or traditional shopping districts (such as Chandni Chowk)Each part of Delhi has its own style of biryani, often based on its original purpose, thus giving rise to Nizamuddin biryani, Shahjahanabad biryani, etc. Nizamuddin biryani usually had little expensive meat and spices as it was primarily meant to be made in bulk for offering at the Nizamuddin Dargah shrine and thereafter to be distributed to devotees.[21] A non-dum biryani, using many green chillies, popularized by the Babu Shahi Bawarchi shops located outside the National Sports Club in Delhi is informally called Babu Shahi biryani. Another version of Delhi biryani uses achaar (pickles) and is called achaari biryani'),
+                      child: ExpandableTextWidget(text: product.description!),
                     ),
                   ),
                 ],
@@ -144,7 +159,7 @@ class PopularFoodDetail extends StatelessWidget {
                 color: AppColors.mainColor,
               ),
               child: BigText(
-                text: '\$10 | Add to cart',
+                text: '\$ ${product.price!} | Add to cart',
               ),
             ),
           ],
