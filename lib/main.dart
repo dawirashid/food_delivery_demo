@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery_demo/controller/popular_product_controller.dart';
+import 'package:food_delivery_demo/pages/cart/cart_page.dart';
 import 'package:food_delivery_demo/pages/food/popular_food_details.dart';
 import 'package:food_delivery_demo/pages/food/recommended_food_detail.dart';
 
@@ -25,9 +26,9 @@ class MyApp extends StatelessWidget {
     Get.find<RecommendedProductController>().getRecommendedProductList();
     return  GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainFoodPage(),
-      initialRoute: RouteHelper.initial,
-      getPages: RouteHelper.routes,
+      home: CartPage(),
+      // initialRoute: RouteHelper.initial,
+      // getPages: RouteHelper.routes,
     );
   }
 }
