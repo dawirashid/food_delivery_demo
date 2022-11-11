@@ -5,6 +5,8 @@ import 'package:food_delivery_demo/models/product_models.dart';
 import 'package:food_delivery_demo/utilis/colors.dart';
 import 'package:get/get.dart';
 
+import '../models/cart_model.dart';
+
 class PopularProductController extends GetxController {
   final PopularProductRepo popularProductRepo;
 
@@ -102,6 +104,9 @@ class PopularProductController extends GetxController {
 
   int get totalItems{
     return _cart.totalItems;
+  }
+  List<CartModel> get getItems{
+    return _cart.getItems;
   }
 
 

@@ -271,8 +271,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
                 color: index.isEven ? Colors.amber : Colors.blue,
                 image: DecorationImage(
-                  image: NetworkImage(AppConstants.BASE_URL +
-                      AppConstants.UPLOAD_URL +
+                  image: NetworkImage(AppConstants.BASE_URL+
+                      AppConstants.UPLOAD_URL+
                       popularProduct.img!),
                   fit: BoxFit.cover,
                 ),

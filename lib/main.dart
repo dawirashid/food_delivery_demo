@@ -3,7 +3,6 @@ import 'package:food_delivery_demo/controller/popular_product_controller.dart';
 import 'package:food_delivery_demo/pages/cart/cart_page.dart';
 import 'package:food_delivery_demo/pages/food/popular_food_details.dart';
 import 'package:food_delivery_demo/pages/food/recommended_food_detail.dart';
-
 import 'package:food_delivery_demo/pages/home/mainfoodpage.dart';
 import 'package:food_delivery_demo/routes/route_helper.dart';
 import 'package:get/get.dart';
@@ -24,11 +23,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.find<PopularProductController>().getPopularProductList();
     Get.find<RecommendedProductController>().getRecommendedProductList();
-    return  GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: CartPage(),
-      // initialRoute: RouteHelper.initial,
-      // getPages: RouteHelper.routes,
+      home:MainFoodPage(),
+      initialRoute: RouteHelper.initial,
+      getPages: RouteHelper.routes,
     );
   }
 }
