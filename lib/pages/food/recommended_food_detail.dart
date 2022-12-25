@@ -15,9 +15,10 @@ import '../../utilis/colors.dart';
 
 class RecommendedFoodDetail extends StatelessWidget {
   final int pageId;
+  final String page;
 
 
-  const RecommendedFoodDetail({Key? key,required this.pageId}) : super(key: key);
+  const RecommendedFoodDetail({Key? key,required this.pageId,required this.page}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,13 @@ class RecommendedFoodDetail extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector( onTap : (){
-                  Get.toNamed(RouteHelper.getInitial());
+
+                  if(page=="cartpage"){
+                    Get.toNamed(RouteHelper.getCartPage());
+                  }else{
+                    Get.toNamed(RouteHelper.getInitial());
+                  }
+
                 },
                     child: AppIcon(icon: Icons.clear)),
                 // AppIcon(icon: Icons.shopping_cart_outlined),
